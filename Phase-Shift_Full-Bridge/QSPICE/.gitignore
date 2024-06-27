@@ -1,6 +1,6 @@
 .ipynb_checkpoints
 .jupyter
 __pycache__
-.qraw
-.qopraw
-.csv
+*.qraw
+*.qopraw
+*.csv
