@@ -414,7 +414,7 @@
       «ellipse (-100,-150) (100,50) 0 0 0 0x1000000 0x1000000 -1 -1»
       «ellipse (-100,-50) (100,150) 0 0 0 0x1000000 0x1000000 -1 -1»
       «text (100,150) 1 7 0 0x1000000 -1 -1 "B2"»
-      «text (-2250,-1000) 1 7 0 0x1000000 -1 -1 "I=V(LINE_FWD)*V(Verr)/3*kMUL"»
+      «text (-5000,-1100) 1 7 0 0x1000000 -1 -1 "I=IF(V(LINE_FWD)*V(Verr)/3*kMUL>300µ, 300µ, V(LINE_FWD)*V(Verr)/3*kMUL )"»
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "-"»
       «pin (0,200) (0,0) 1 0 0 0x0 -1 "+"»
     »
@@ -592,7 +592,7 @@
       «line (0,-180) (0,-200) 0 0 0x1000000 -1 -1»
       «zigzag (-80,180) (80,-180) 0 0 0 0x1000000 -1 -1»
       «text (100,150) 1 7 0 0x1000000 -1 -1 "B1"»
-      «text (-300,1700) 1 7 0 0x1000000 -1 -1 "R=if(time>1/freq,V(out)*V(out)/{Pout/eff},0)"»
+      «text (250,1800) 1 7 0 0x1000000 -1 -1 "R=if(time>1/freq,(V(out)*V(out))/{Pout/eff},1Meg)"»
       «pin (0,200) (0,0) 1 0 0 0x0 -1 "1"»
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "2"»
     »
@@ -687,7 +687,7 @@
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "2"»
     »
   »
-  «component (19400,300) 0 1
+  «component (19400,300) 0 0
     «symbol B1
       «type: B»
       «description: Behavioral Voltage Source»
@@ -704,7 +704,7 @@
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "-"»
     »
   »
-  «component (16500,-700) 0 1
+  «component (16500,-700) 0 0
     «symbol V
       «type: V»
       «description: Independent Voltage Source»
@@ -721,7 +721,7 @@
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "-"»
     »
   »
-  «component (13700,400) 0 1
+  «component (13700,400) 0 0
     «symbol B1
       «type: B»
       «description: Behavioral Voltage Source»
@@ -750,7 +750,41 @@
       «rect (-25,-73) (25,-77) 0 0 0 0x1000000 0x3000000 -1 0 -1»
       «ellipse (-130,130) (130,-130) 0 0 0 0x1000000 0x1000000 -1 -1»
       «text (100,150) 1 7 0 0x1000000 -1 -1 "B3"»
-      «text (100,-150) 1 7 0 0x1000000 -1 -1 "V=abortsim(  if(Vout-V(avg)<0.001*Vout,1,0)     )"»
+      «text (100,-150) 1 7 0 0x1000000 -1 -1 "V=abortsim(  if((Vout-V(avg)<0.001*Vout) & abs(v(slope_AVG))<0.5 & abs(V(N03,N02))<1m,1,0)     )"»
+      «pin (0,200) (0,0) 1 0 0 0x0 -1 "+"»
+      «pin (0,-200) (0,0) 1 0 0 0x0 -1 "-"»
+    »
+  »
+  «component (13700,1900) 0 0
+    «symbol B1
+      «type: B»
+      «description: Behavioral Voltage Source»
+      «shorted pins: false»
+      «line (0,-130) (0,-200) 0 0 0x1000000 -1 -1»
+      «line (0,200) (0,130) 0 0 0x1000000 -1 -1»
+      «rect (-25,77) (25,73) 0 0 0 0x1000000 0x3000000 -1 0 -1»
+      «rect (-2,50) (2,100) 0 0 0 0x1000000 0x3000000 -1 0 -1»
+      «rect (-25,-73) (25,-77) 0 0 0 0x1000000 0x3000000 -1 0 -1»
+      «ellipse (-130,130) (130,-130) 0 0 0 0x1000000 0x1000000 -1 -1»
+      «text (100,150) 1 7 0 0x1000000 -1 -1 "B6"»
+      «text (100,-150) 1 7 0 0x1000000 -1 -1 "V=ddt(v(avg))"»
+      «pin (0,200) (0,0) 1 0 0 0x0 -1 "+"»
+      «pin (0,-200) (0,0) 1 0 0 0x0 -1 "-"»
+    »
+  »
+  «component (16400,1700) 0 0
+    «symbol B1
+      «type: B»
+      «description: Behavioral Voltage Source»
+      «shorted pins: false»
+      «line (0,-130) (0,-200) 0 0 0x1000000 -1 -1»
+      «line (0,200) (0,130) 0 0 0x1000000 -1 -1»
+      «rect (-25,77) (25,73) 0 0 0 0x1000000 0x3000000 -1 0 -1»
+      «rect (-2,50) (2,100) 0 0 0 0x1000000 0x3000000 -1 0 -1»
+      «rect (-25,-73) (25,-77) 0 0 0 0x1000000 0x3000000 -1 0 -1»
+      «ellipse (-130,130) (130,-130) 0 0 0 0x1000000 0x1000000 -1 -1»
+      «text (100,150) 1 7 0 0x1000000 -1 -1 "B7"»
+      «text (100,-150) 1 7 0 0x1000000 -1 -1 "V=idt((V(slope_AVG)-if(time<tau,0,delay(V(slope_AVG),tau)))/tau)"»
       «pin (0,200) (0,0) 1 0 0 0x0 -1 "+"»
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "-"»
     »
@@ -791,6 +825,10 @@
   «net (13700,0) 1 13 0 "GND"»
   «net (14300,800) 1 7 0 "avg"»
   «net (17700,-2500) 1 13 0 "GND"»
+  «net (13700,1700) 1 13 0 "GND"»
+  «net (14900,2400) 1 7 0 "slope_AVG"»
+  «net (16400,1300) 1 13 0 "GND"»
+  «net (17300,2100) 1 7 0 "avg_slope"»
   «junction (12900,-1200)»
   «junction (12200,-1200)»
   «junction (8400,100)»
@@ -970,6 +1008,11 @@
   «wire (13700,800) (14300,800) "avg"»
   «wire (17700,-2300) (17700,-2500) "GND"»
   «wire (17700,-1900) (17700,-1700) "N17"»
+  «wire (13700,2100) (13700,2400) "slope_AVG"»
+  «wire (13700,2400) (14900,2400) "slope_AVG"»
+  «wire (16400,1900) (16400,2100) "avg_slope"»
+  «wire (16400,1300) (16400,1500) "GND"»
+  «wire (16400,2100) (17300,2100) "avg_slope"»
   «text (2650,3300) 1 7 0 0x1000000 -1 -1 "ï»¿.model MODSW SW(ron={ron_SW} roff=10Meg vt=0.5 vh=2m TTOL={ttol_factor/fsw})"»
   «text (2650,4050) 1 7 0 0x1000000 -1 -1 "ï»¿.model REC D(Vfwd={fwd_REC},Ron={rdiff_REC}, Roff = 10Meg, Cjo=10p)"»
   «text (2650,4350) 1 7 0 0x1000000 -1 -1 "ï»¿.model ideal D(Vfwd=0,Ron=1m, Roff=10Meg)"»
@@ -994,18 +1037,19 @@
   «text (2650,3800) 1 7 0 0x1000000 -1 -1 "ï»¿.model boostD D(Vfwd={fwd_boost},Ron={rdiff_boost}, Roff = 10Meg)"»
   «text (-1250,3950) 1 7 0 0x1000000 -1 -1 "ï»¿.param fwd_boost=0"»
   «text (-1250,3550) 1 7 0 0x1000000 -1 -1 "ï»¿.param rdiff_boost=1e-3"»
-  «text (-3900,4550) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTART={TSTOP-1/freq}"»
+  «text (-3900,4550) 1 7 1 0x1000000 -1 -1 "ï»¿.param TSTART={TSTOP-1/freq}"»
   «text (-3950,4350) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTOP={1}"»
   «text (-3950,4150) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTEP={(1/fsw)/30}"»
   «text (-3850,1100) 1 7 0 0x1000000 -1 -1 "ï»¿.param L=328e-6"»
   «text (-3750,600) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vin_rms=195"»
   «text (-3700,400) 1 7 0 0x1000000 -1 -1 "ï»¿.param freq=50"»
-  «text (-3400,5100) 1 7 1 0x1000000 -1 -1 "ï»¿.param TSTART=340m"»
+  «text (-3400,5100) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTART=390m"»
   «text (-1200,2700) 1 7 0 0x1000000 -1 -1 "ï»¿.param ttol_factor = 0.0001"»
   «text (-1650,2150) 1 7 0 0x1000000 -1 -1 "ï»¿.param Res_L=1m"»
   «text (11050,-3900) 1 7 1 0x1000000 -1 -1 "ï»¿.options acct"»
-  «text (11050,-4650) 1 7 0 0x1000000 -1 -1 "ï»¿.options reltol = 0.0001"»
+  «text (11050,-4650) 1 7 1 0x1000000 -1 -1 "ï»¿.options reltol = 0.0001"»
   «text (15400,750) 1 7 0 0x1000000 -1 -1 "ï»¿.param tau=10/freq"»
   «text (-3900,3850) 1 7 1 0x1000000 -1 -1 "ï»¿.param TSTOP={TSTART+1/freq}"»
+  «text (6900,2250) 1 7 1 0x1000000 -1 -1 "ï»¿R=if(time>1/freq,(V(out)*V(out))/{Pout/eff},((Vout*Vout)/{Pout/eff})*10)"»
 »
 
