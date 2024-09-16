@@ -157,7 +157,7 @@
   «wire (1700,400) (1700,800) "out"»
   «wire (700,800) (1700,800) "out"»
   «wire (-2700,100) (-100,100) "N01"»
-  «text (-3150,1150) 1 7 0 0x1000000 -1 -1 "ï»¿.model REC D(Vfwd={fwd},Ron={rdiff},Cjo=10p)"»
+  «text (-3150,1400) 1 7 0 0x1000000 -1 -1 "ï»¿.model REC D(Vfwd={fwd},Ron={rdiff},Cjo=10p)"»
   «text (-2300,-1950) 1 7 0 0x1000000 -1 -1 "ï»¿.options savepowers=1"»
   «text (-3150,3350) 1 7 0 0x1000000 -1 -1 "ï»¿.param Pin=129"»
   «text (-3150,3150) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cf=118Âµ"»
@@ -173,10 +173,10 @@
   «text (100,-3500) 1 7 0 0x1000000 -1 -1 "ï»¿.meas VOUT_AVG AVG V(out)"»
   «text (-3150,2350) 1 7 0 0x1000000 -1 -1 "ï»¿.param freq=50"»
   «text (-3150,1950) 1 7 0 0x1000000 -1 -1 "ï»¿.param ESR = 150e-3"»
-  «text (4150,1750) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTEP = {(1/freq)/1000}"»
-  «text (4150,1500) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTOP = {600*1/freq}"»
-  «text (4150,1250) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTART = {TSTOP-6/freq}"»
-  «text (2050,-1750) 1 7 0 0x1000000 -1 -1 "ï»¿.tran 0 TSTOP TSTART TSTEP"»
+  «text (3850,3300) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTEP = {(1/freq)/1000}"»
+  «text (3850,3050) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTOP = {600*1/freq}"»
+  «text (3850,2800) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTART = {TSTOP-6/freq}"»
+  «text (4550,-2050) 1 7 0 0x1000000 -1 -1 "ï»¿.tran 0 TSTOP TSTART TSTEP"»
   «text (-1450,3350) 1 7 1 0x1000000 -1 -1 "ï»¿Constant load power"»
   «text (-1450,3150) 1 7 1 0x1000000 -1 -1 "ï»¿Smoothing capacitor value"»
   «text (-1450,2950) 1 7 1 0x1000000 -1 -1 "ï»¿Input AC RMS value"»
@@ -184,7 +184,7 @@
   «text (-1450,2550) 1 7 1 0x1000000 -1 -1 "ï»¿REC diode differential resistance"»
   «text (-1450,2350) 1 7 1 0x1000000 -1 -1 "ï»¿Input AC frequency"»
   «text (-1450,1950) 1 7 1 0x1000000 -1 -1 "ï»¿Smoothing capacitor ESR value"»
-  «text (4150,2050) 1 7 1 0x1000000 -1 -1 "ï»¿Special parameters, do not change their names"»
+  «text (3800,3600) 1 7 1 0x1000000 -1 -1 "ï»¿Special parameters, do not change their names"»
   «text (-3150,3750) 1 7 1 0x1000000 -1 -1 "ï»¿Actual values in parameters are provided by Python script."»
   «text (2300,-2500) 1 7 1 0x1000000 -1 -1 "ï»¿RMS current provided by input source"»
   «text (2300,-2700) 1 7 1 0x1000000 -1 -1 "ï»¿RMS current through REC diode"»
