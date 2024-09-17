@@ -80,7 +80,7 @@ def parse_and_generate_script(input_filename, output_filename):
     # sort param_Args alphabetically without considering case
     param_args = sorted(param_args, key=str.lower)
     function_signature = (
-        f"def {function_name}({', '.join(param_args)}, export_traces=[]):\n"
+        f"def {function_name}({', '.join(param_args)}, export_traces = None):\n"
     )
 
     # generate results list filled with zeros
@@ -116,6 +116,7 @@ def parse_and_generate_script(input_filename, output_filename):
         f"{indent}if export_traces:\n"
         f'{indent}{indent}run_qux = subprocess.run([exe_qux, "-Export", "{input_filename.replace(".cir", ".qraw")}", export_traces, "all", "CSV"])\n'
         f'{indent}{indent}df = pd.read_csv("{input_filename.replace(".cir", ".csv")}") \n'
+        f'{indent}{indent}df.columns = df.columns.str.lower() \n\n'
         f'{indent}{indent}#Delete Exported Waveforms CSV File \n'
         f'{indent}{indent}subprocess.run(["del", "{input_filename.replace(".cir", ".csv")}"], shell=True) \n'
     ]
@@ -130,7 +131,9 @@ def parse_and_generate_script(input_filename, output_filename):
     ]
     processing_lines = processing_lines1 + processing_lines2 + processing_lines3
     # generate the function body
-    function_body = f"{indent}#### Create circuit file ####\n"
+    function_body = f"{indent}if export_traces is None:\n"
+    function_body += f"{indent}{indent} export_traces = [] \n"
+    function_body += f"{indent}#### Create circuit file ####\n"
     function_body += f'{indent}f = open("{input_filename}", "w", encoding="ascii", newline="\\n")\n\n{indent}#### Circuit Definition ####\n'
     function_body += f'{indent}f.write("* Auto-Generated Netlist File" + "\\n")\n'
 

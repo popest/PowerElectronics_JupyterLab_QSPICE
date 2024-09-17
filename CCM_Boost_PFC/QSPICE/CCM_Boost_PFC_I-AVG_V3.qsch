@@ -900,25 +900,25 @@
   «text (-3850,1700) 1 7 0 0x1000000 -1 -1 "ï»¿.param fsw=100e3"»
   «text (-3850,1500) 1 7 0 0x1000000 -1 -1 "ï»¿.param ESR=150e-3"»
   «text (-3850,1300) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout=358e-6"»
-  «text (-1250,4150) 1 7 0 0x1000000 -1 -1 "ï»¿.param fwd_REC=1"»
-  «text (-1250,3750) 1 7 0 0x1000000 -1 -1 "ï»¿.param rdiff_REC=30e-3"»
+  «text (-1250,4150) 1 7 0 0x1000000 -1 -1 "ï»¿.param fwd_REC=0.88"»
+  «text (-1250,3750) 1 7 0 0x1000000 -1 -1 "ï»¿.param rdiff_REC=13e-3"»
   «text (-1200,3100) 1 7 0 0x1000000 -1 -1 "ï»¿.param ron_SW=1e-3"»
   «text (2650,3800) 1 7 0 0x1000000 -1 -1 "ï»¿.model boostD D(Vfwd={fwd_boost},Ron={rdiff_boost}, Roff = 10Meg)"»
   «text (-1250,3950) 1 7 0 0x1000000 -1 -1 "ï»¿.param fwd_boost=0"»
   «text (-1250,3550) 1 7 0 0x1000000 -1 -1 "ï»¿.param rdiff_boost=1e-3"»
-  «text (-3950,4550) 1 7 1 0x1000000 -1 -1 "ï»¿.param TSTART={TSTOP-1/freq}"»
+  «text (-3950,4550) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTART={TSTOP-1/freq}"»
   «text (-3950,4350) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTOP={1}"»
-  «text (-3950,4150) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTEP={(1/fsw)/30}"»
+  «text (-3950,4150) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTEP={(1/fsw)/50}"»
   «text (-3850,1100) 1 7 0 0x1000000 -1 -1 "ï»¿.param L=189e-6"»
   «text (-3750,600) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vin_rms=195"»
   «text (-3700,400) 1 7 0 0x1000000 -1 -1 "ï»¿.param freq=50"»
-  «text (-4150,6050) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTART=0"»
+  «text (-4150,6050) 1 7 1 0x1000000 -1 -1 "ï»¿.param TSTART=0"»
   «text (-1200,2700) 1 7 0 0x1000000 -1 -1 "ï»¿.param ttol_factor = 0.0001"»
   «text (-1100,2200) 1 7 0 0x1000000 -1 -1 "ï»¿.param Res_L=1m"»
   «text (-750,-6650) 1 7 1 0x1000000 -1 -1 "ï»¿.options acct"»
-  «text (-750,-6800) 1 7 1 0x1000000 -1 -1 "ï»¿.options reltol = 0.0001"»
   «text (-4150,5850) 1 7 1 0x1000000 -1 -1 "ï»¿.param TSTOP={TSTART+1/freq}"»
   «text (-750,-6500) 1 7 0 0x1000000 -1 -1 "ï»¿.options trtol=1"»
   «text (-6200,400) 1 7 0 0x1000000 -1 -1 "ï»¿.param IMUL = 300ÂµA"»
+  «text (2650,4700) 1 7 0 0x1000000 -1 -1 "ï»¿.model REC2 D(IS=15.1e-6, Rs=2.96m, CJO=111p, M=0.333, N=2.84, TT=4.32Âµ)"»
 »
 
