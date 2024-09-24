@@ -1,3 +1,6 @@
+# QSPICE parser
+# modified on 23-Sep-2024
+
 import os
 import re
 import subprocess
@@ -45,7 +48,10 @@ def parse_and_generate_script(input_filename, output_filename):
             if match:
                 param_name = match.group(1)
                 param_value = match.group(2)
-                if param_name not in excluded_params:
+                if (
+                    param_name not in excluded_params
+                    and not param_name.lower().startswith("i_")
+                ):
                     param_lines.append((param_name, param_value))
                     param_args.add(param_name)
                 else:
