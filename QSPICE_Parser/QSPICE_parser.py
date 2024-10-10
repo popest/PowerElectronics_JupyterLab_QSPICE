@@ -197,7 +197,7 @@ def parse_and_generate_script(input_filename, output_filename):
     )
 
     # Write the processed content to the new Python script file
-    with open(output_file_path, "w") as file:
+    with open(output_file_path, "w", encoding="utf-8") as file:
         file.write(function_code)
         file.writelines(processed_content)
 
