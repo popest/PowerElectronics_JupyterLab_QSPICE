@@ -1198,10 +1198,11 @@
   «text (37750,5650) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lprim_AVG avg I(L1)"»
   «text (37750,5450) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lprim_RMS rms I(L1)"»
   «text (35500,10550) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lout_RMS rms I(Lout)"»
-  «text (37750,5150) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lsec1_AVG avg I(L2)"»
-  «text (37750,5000) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lsec1_RMS avg I(L2)"»
-  «text (37750,4650) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lsec2_AVG avg I(L3)"»
-  «text (37750,4450) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lsec2_RMS avg I(L3)"»
+  «text (37750,4900) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lsec1_AVG avg I(L2)"»
+  «text (37750,4750) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lsec1_RMS rms I(L2)"»
+  «text (37750,4400) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lsec2_AVG avg I(L3)"»
+  «text (37750,4200) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lsec2_RMS rms I(L3)"»
   «text (35600,8150) 1 7 0 0x1000000 -1 -1 "ï»¿.meas L_res_point FIND I(L9) WHEN V(low_b)=0.5 cross=last"»
+  «text (37750,5300) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Lprim_pp pp I(L1)"»
 »
 
