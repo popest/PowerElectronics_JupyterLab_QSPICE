@@ -1135,7 +1135,7 @@
   «text (-7000,3500) 1 7 0 0x1000000 -1 -1 "ï»¿.param fsw=133e3"»
   «text (-2700,2700) 1 7 0 0x1000000 -1 -1 "ï»¿.param ESR=25e-3"»
   «text (-2700,2900) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout=374e-6"»
-  «text (-2700,4300) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_fwd_REC=0"»
+  «text (-2700,4300) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_fwd_REC=0.7"»
   «text (-2700,4100) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_rdiff_REC=0.1e-3"»
   «text (-2700,3500) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_ron_SW=0.1e-3"»
   «text (2650,3950) 1 7 0 0x1000000 -1 -1 "ï»¿.model boostD D(Vfwd={I_fwd_boost},Ron={I_rdiff_boost}, Roff = 10Meg)"»
