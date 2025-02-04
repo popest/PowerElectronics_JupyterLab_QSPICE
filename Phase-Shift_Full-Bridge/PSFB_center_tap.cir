@@ -39,8 +39,8 @@ K2 L1 L2 L3 1
 .param fsw_p=100000.0
 .param Lr=2.588333333333333e-05
 .param Lout=0.000319953729155214
-.param Vout=264.70588235294116
-.param D=0.745
+.param Vout=172
+.param D=0.5
 .param Vin=400
 .param Iout_max=3.4
 .param Pmax=675.0

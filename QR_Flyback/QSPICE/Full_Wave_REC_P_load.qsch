@@ -167,7 +167,7 @@
   «text (100,-2500) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_AC_RMS rms I(V1)"»
   «text (100,-2700) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_D_RMS rms I(D1)"»
   «text (100,-2900) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_D_AVG avg I(D1)"»
-  «text (100,-3100) 1 7 0 0x1000000 -1 -1 "ï»¿.meas Pd avg P(D1)"»
+  «text (100,-3100) 1 7 0 0x1000000 -1 -1 "ï»¿.meas P_D_AVG avg P(D1)"»
   «text (100,-3300) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Cin_RMS rms I(C1)"»
   «text (-2300,-2150) 1 7 0 0x1000000 -1 -1 "ï»¿.options trtol=1"»
   «text (100,-3500) 1 7 0 0x1000000 -1 -1 "ï»¿.meas VOUT_AVG AVG V(out)"»

@@ -90,27 +90,17 @@ def parse_and_generate_script(input_filename, output_filename):
         f"def {function_name}({', '.join(param_args)}, export_traces = None):\n"
     )
 
-    # generate results dictionary filled with zeros
-    # meas_count = len(meas_lines)
-    meas_result_line = "results = { \n"
-    for i, meas_line in enumerate(meas_lines):
-        match = re.search(r"\.meas\s+(\w+)", meas_line)
-        if match:
-            meas_name = match.group(1)
-            meas_result_line += f'{indent}{indent}"{meas_name}": 0,\n'
-    meas_result_line += indent + "}"
-    # meas_result_line = f"results = [{', '.join(['0.0']*meas_count)}]\n"
+    # generate results list filled with zeros
+    meas_count = len(meas_lines)
+    meas_result_line = f"results = [{', '.join(['0.0'] * meas_count)}]\n"
 
     # add for loop to search results file
     for_loop_code = f"{indent}for i, line in enumerate(results_lines):\n"
     for_loop_code += f"{indent}{indent}stripped_line = line.strip()\n"
     for_loop_code += f"{indent}{indent}match stripped_line:\n"
     for i, meas_line in enumerate(meas_lines):
-        match = re.search(r"\.meas\s+(\w+)", meas_line)
-        if match:
-            meas_name = match.group(1)
-            for_loop_code += f'{indent}{indent}{indent}case "{meas_line.lower()}:": \n'
-            for_loop_code += f"{indent}{indent}{indent}{indent}results['{meas_name}'] = float(re.search(r'[-+]?\d*\.\d+|\d+', results_lines[i + 1])[0])\n\n"
+        for_loop_code += f'{indent}{indent}{indent}case "{meas_line.lower()}:": \n'
+        for_loop_code += f"{indent}{indent}{indent}{indent}results[{i}] = float(re.search(r'[-+]?\d*\.\d+|\d+', results_lines[i + 1])[0])\n\n"
     for_loop_code += f"{indent}return [df,results]"
 
     # Result file processing lines
