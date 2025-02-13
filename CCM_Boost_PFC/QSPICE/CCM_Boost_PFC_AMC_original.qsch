@@ -1157,26 +1157,26 @@
   «text (14600,3850) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_kVin={1.5/(sqrt(2)*VAC_RMS)}"»
   «text (16300,4050) 1 7 1 0x1000000 -1 -1 "ï»¿Modulator gain"»
   «text (14600,4050) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_kMOD=0.2"»
-  «text (-7000,3700) 1 7 0 0x1000000 -1 -1 "ï»¿.param eff = x"»
-  «text (-7000,3900) 1 7 0 0x1000000 -1 -1 "ï»¿.param Pout = x"»
-  «text (-7000,4100) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vout = x"»
+  «text (-7000,3700) 1 7 0 0x1000000 -1 -1 "ï»¿.param eff=0.96"»
+  «text (-7000,3900) 1 7 0 0x1000000 -1 -1 "ï»¿.param Pout=940"»
+  «text (-7000,4100) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vout=400"»
   «text (-750,-6250) 1 7 1 0x1000000 -1 -1 "ï»¿.options savepowers"»
   «text (-750,-6700) 1 7 0 0x1000000 -1 -1 "ï»¿.tran 0 {TSTOP} {TSTART} {TSTEP}"»
-  «text (-7000,3500) 1 7 0 0x1000000 -1 -1 "ï»¿.param fsw = x"»
-  «text (-2700,2700) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout_ESR = x"»
-  «text (-2700,2900) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout = x"»
-  «text (-2700,4300) 1 7 0 0x1000000 -1 -1 "ï»¿.param REC_fwd = x"»
-  «text (-2700,4100) 1 7 0 0x1000000 -1 -1 "ï»¿.param REC_rdiff = x"»
-  «text (-2700,3500) 1 7 0 0x1000000 -1 -1 "ï»¿.param rdson = x"»
+  «text (-7000,3500) 1 7 0 0x1000000 -1 -1 "ï»¿.param fsw=133e3"»
+  «text (-2700,2700) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout_ESR=25e-3"»
+  «text (-2700,2900) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout=374e-6"»
+  «text (-2700,4300) 1 7 0 0x1000000 -1 -1 "ï»¿.param REC_fwd=0.7"»
+  «text (-2700,4100) 1 7 0 0x1000000 -1 -1 "ï»¿.param REC_rdiff=0.1e-3"»
+  «text (-2700,3500) 1 7 0 0x1000000 -1 -1 "ï»¿.param rdson=0.2"»
   «text (2650,3950) 1 7 0 0x1000000 -1 -1 "ï»¿.model boostD D(Vfwd={Dboost_fwd},Ron={Dboost_rdiff}, Roff = 10Meg)"»
-  «text (-2700,3900) 1 7 0 0x1000000 -1 -1 "ï»¿.param Dboost_fwd = x"»
-  «text (-2700,3700) 1 7 0 0x1000000 -1 -1 "ï»¿.param Dboost_rdiff = x"»
+  «text (-2700,3900) 1 7 0 0x1000000 -1 -1 "ï»¿.param Dboost_fwd=0.69"»
+  «text (-2700,3700) 1 7 0 0x1000000 -1 -1 "ï»¿.param Dboost_rdiff=72e-3"»
   «text (14600,2400) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTART={TSTOP-1/AC_freq}"»
   «text (14600,2200) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTOP={1}"»
   «text (14600,2000) 1 7 0 0x1000000 -1 -1 "ï»¿.param TSTEP={(1/fsw)/50}"»
-  «text (-2700,3300) 1 7 0 0x1000000 -1 -1 "ï»¿.param L = x"»
-  «text (-7000,4300) 1 7 0 0x1000000 -1 -1 "ï»¿.param VAC_rms = x"»
-  «text (-7000,3300) 1 7 0 0x1000000 -1 -1 "ï»¿.param AC_freq = x"»
+  «text (-2700,3300) 1 7 0 0x1000000 -1 -1 "ï»¿.param L=378e-6"»
+  «text (-7000,4300) 1 7 0 0x1000000 -1 -1 "ï»¿.param VAC_rms=195"»
+  «text (-7000,3300) 1 7 0 0x1000000 -1 -1 "ï»¿.param AC_freq=50"»
   «text (14600,2600) 1 7 1 0x1000000 -1 -1 "ï»¿.param TSTART=0"»
   «text (14600,3650) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_ttol_factor = 0.0001"»
   «text (-2700,3100) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_Res_L=0.1e-3"»
@@ -1185,16 +1185,16 @@
   «text (14550,5200) 1 7 1 0x1000000 -1 -1 "ï»¿Ri is current sense V/A ratio. It is calculated such as at inductor peak current, current sensor output voltage is 1V"»
   «text (-10800,4150) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_L_RMS rms I(L1)"»
   «text (-10800,3600) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_Dboost_RMS rms I(D5)"»
-  «text (10100,4600) 1 7 1 0x1000000 -1 -1 "ï»¿E/A Current loop"»
-  «text (10100,4200) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cfp_I = x"»
-  «text (10100,4000) 1 7 0 0x1000000 -1 -1 "ï»¿.param Rf_I = x"»
-  «text (10100,3800) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cfz_I = x"»
-  «text (10100,3600) 1 7 1 0x1000000 -1 -1 "ï»¿.param Rl_I = 1K"»
-  «text (12350,4600) 1 7 1 0x1000000 -1 -1 "ï»¿E/A Voltage loop"»
-  «text (12350,4200) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cfp_V = x"»
-  «text (12350,4000) 1 7 0 0x1000000 -1 -1 "ï»¿.param Rf_V = x"»
-  «text (12350,3800) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cfz_V = x"»
-  «text (12350,3600) 1 7 1 0x1000000 -1 -1 "ï»¿.param Rl_V = 10K"»
+  «text (10750,4650) 1 7 1 0x1000000 -1 -1 "ï»¿E/A Current loop"»
+  «text (10750,4250) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cfp_I = 566p"»
+  «text (10750,4050) 1 7 0 0x1000000 -1 -1 "ï»¿.param Rf_I = 3.5K"»
+  «text (10750,3850) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cfz_I = 5n"»
+  «text (10750,3650) 1 7 1 0x1000000 -1 -1 "ï»¿.param Rl_I = 1K"»
+  «text (12700,4650) 1 7 1 0x1000000 -1 -1 "ï»¿E/A Voltage loop"»
+  «text (12700,4250) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cfp_V = 167n"»
+  «text (12700,4050) 1 7 0 0x1000000 -1 -1 "ï»¿.param Rf_V = 21.2K"»
+  «text (12700,3850) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cfz_V = 1.44Âµ"»
+  «text (12700,3650) 1 7 1 0x1000000 -1 -1 "ï»¿.param Rl_V = 10K"»
   «text (10500,-2150) 1 7 1 0x1000000 -1 -1 "ï»¿Soft-Start, Vref = 2.5V"»
   «text (14600,4250) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_Vref = 2.5"»
   «text (14550,4650) 1 7 1 0x1000000 -1 -1 "ï»¿Internal Parameters"»
@@ -1203,22 +1203,22 @@
   «text (16950,3650) 1 7 1 0x1000000 -1 -1 "ï»¿Temporal tolerance factor"»
   «text (-7000,4700) 1 7 1 0x1000000 -1 -1 "ï»¿Input/Output/Operating parameters"»
   «text (16700,3450) 1 7 1 0x1000000 -1 -1 "ï»¿Current sense V/A ratio"»
-  «text (-5100,3300) 1 7 1 0x1000000 -1 -1 "ï»¿AC line frequency"»
-  «text (-5100,3500) 1 7 1 0x1000000 -1 -1 "ï»¿Switching frequency"»
-  «text (-5100,3700) 1 7 1 0x1000000 -1 -1 "ï»¿Estimated efficiency"»
-  «text (-5100,3900) 1 7 1 0x1000000 -1 -1 "ï»¿Output power"»
-  «text (-5100,4100) 1 7 1 0x1000000 -1 -1 "ï»¿Output voltage"»
+  «text (-5400,3300) 1 7 1 0x1000000 -1 -1 "ï»¿AC line frequency"»
+  «text (-5400,3500) 1 7 1 0x1000000 -1 -1 "ï»¿Switching frequency"»
+  «text (-5400,3700) 1 7 1 0x1000000 -1 -1 "ï»¿Estimated efficiency"»
+  «text (-5400,3900) 1 7 1 0x1000000 -1 -1 "ï»¿Output power"»
+  «text (-5400,4100) 1 7 1 0x1000000 -1 -1 "ï»¿Output voltage"»
   «text (-5100,4300) 1 7 1 0x1000000 -1 -1 "ï»¿Input AC RMS voltage"»
   «text (-2700,4700) 1 7 1 0x1000000 -1 -1 "ï»¿Component parameters"»
-  «text (-450,4300) 1 7 1 0x1000000 -1 -1 "ï»¿REC diode built-in potential"»
-  «text (-450,4100) 1 7 1 0x1000000 -1 -1 "ï»¿REC diode differential resistance"»
-  «text (-450,3900) 1 7 1 0x1000000 -1 -1 "ï»¿BOOST diode built-in potential"»
-  «text (-450,3700) 1 7 1 0x1000000 -1 -1 "ï»¿BOOST diode differential resistance"»
-  «text (-450,3500) 1 7 1 0x1000000 -1 -1 "ï»¿MOSFET RDS_on"»
-  «text (-450,3300) 1 7 1 0x1000000 -1 -1 "ï»¿PFC inductor"»
-  «text (-450,3100) 1 7 1 0x1000000 -1 -1 "ï»¿PFC inductor rdc"»
-  «text (-450,2900) 1 7 1 0x1000000 -1 -1 "ï»¿Output capacitor"»
-  «text (-450,2700) 1 7 1 0x1000000 -1 -1 "ï»¿Output capacitor ESR"»
+  «text (-650,4300) 1 7 1 0x1000000 -1 -1 "ï»¿REC diode built-in potential"»
+  «text (-650,4100) 1 7 1 0x1000000 -1 -1 "ï»¿REC diode differential resistance"»
+  «text (-650,3900) 1 7 1 0x1000000 -1 -1 "ï»¿BOOST diode built-in potential"»
+  «text (-650,3700) 1 7 1 0x1000000 -1 -1 "ï»¿BOOST diode differential resistance"»
+  «text (-650,3500) 1 7 1 0x1000000 -1 -1 "ï»¿MOSFET RDS_on"»
+  «text (-650,3300) 1 7 1 0x1000000 -1 -1 "ï»¿PFC inductor"»
+  «text (-650,3100) 1 7 1 0x1000000 -1 -1 "ï»¿PFC inductor rdc"»
+  «text (-650,2900) 1 7 1 0x1000000 -1 -1 "ï»¿Output capacitor"»
+  «text (-650,2700) 1 7 1 0x1000000 -1 -1 "ï»¿Output capacitor ESR"»
   «text (2700,4700) 1 7 1 0x1000000 -1 -1 "ï»¿Models"»
   «text (-10750,4400) 1 7 1 0x1000000 -1 -1 "ï»¿Measurements"»
   «text (16100,2600) 1 7 1 0x1000000 -1 -1 "ï»¿For diagnostic purpose only"»
@@ -1237,10 +1237,10 @@
   «text (-10800,1600) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_IN_RMS rms I(V1)"»
   «text (-10800,1300) 1 7 0 0x1000000 -1 -1 "ï»¿.meas I_RSENSE_RMS rms I(V5)"»
   «text (2650,3750) 1 7 0 0x1000000 -1 -1 "ï»¿.model MODSW SW(ron={rdson} roff=10Meg vt=0.5 vh=-0.05 )"»
-  «text (-2700,2500) 1 7 0 0x1000000 -1 -1 "ï»¿.param R_EMI = x"»
-  «text (-450,2500) 1 7 1 0x1000000 -1 -1 "ï»¿Parasitic resistance formed by EMI filter"»
-  «text (-2700,2300) 1 7 0 0x1000000 -1 -1 "ï»¿.param Rsense = x"»
-  «text (-450,2300) 1 7 1 0x1000000 -1 -1 "ï»¿Current sense resistance "»
+  «text (-2700,2500) 1 7 0 0x1000000 -1 -1 "ï»¿.param R_EMI=25e-3"»
+  «text (-650,2500) 1 7 1 0x1000000 -1 -1 "ï»¿Parasitic resistance formed by EMI filter"»
+  «text (-2700,2300) 1 7 0 0x1000000 -1 -1 "ï»¿.param Rsense=50e-3"»
+  «text (-650,2300) 1 7 1 0x1000000 -1 -1 "ï»¿Current sense resistance "»
   «text (-750,-6050) 1 7 1 0x1000000 -1 -1 "ï»¿.options maxord = 1"»
 »
 
