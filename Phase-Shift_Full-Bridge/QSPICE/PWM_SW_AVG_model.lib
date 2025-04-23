@@ -1,0 +1,18 @@
+# Unified PWM Switch Model with Automatic Transition between CCM and DCM (Based on IEEE paper from Burkhard Ulrich, 2021)
+.subckt PWM_SW_AVG_model a p vc c params: L=1µ f=1K vr=0 ks=1
+B1 a N01 I=V(d1)/(V(d1)+V(d2))*I(VSENSE)
+B2 N01 p V=V(d1)/(V(d1)+V(d2)+1µ)*V(a,p)
+VSENSE N01 c 0
+Cr c p Q=(if(V(cm_ccm_ac)>0.5,4/({L}*(2*pi*{f})**2),0))*V(c,p)
+B3 0 d1 I=limit(V(d),0.99,0.01)
+R1 vc 0 100Meg
+C1 d1 0 1p
+R2 d1 0 1
+B5 0 d2 I=limit(abs(2*L*f*(I(VSENSE))/(V(d1)*(V(a,c))+10µ)-V(d1)),1-V(d1),0)
+C2 d2 0 1p
+R3 d2 0 1
+B4 cm_ccm_ac 0 V=if(({ks>10µ})&(V(dccm)<V(ddcm)),1,0)
+B6 dccm 0 V=limit(2*L*f*(V(vc)-ks*abs(I(VSENSE)))/(2*vr*f*L+ks*abs(V(a,c))),0,1)
+B7 ddcm 0 V=limit((V(vc)*L*f)/(vr*f*L+ks*abs(V(a,c))),0,1)
+B8 d 0 V=min(V(ddcm),V(dccm))
+.ends PWM_SW_AVG_PSFB_X1

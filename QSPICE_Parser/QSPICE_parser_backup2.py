@@ -1,7 +1,5 @@
 # QSPICE parser
-# modified on 22-Apr-2025
-# updated path for run to keep all files within QSPICE subdirectory
-# added feature to parsing .lib statement and .ac analysis
+# modified on 23-Sep-2024
 
 import os
 import re
@@ -35,7 +33,6 @@ def parse_and_generate_script(input_filename, output_filename):
     circuit_lines = []
     meas_lines = []
     model_lines = []
-    lib_lines = []
     analysis_lines = []
     param_args = set()
     excluded_param_lines = []
@@ -68,11 +65,8 @@ def parse_and_generate_script(input_filename, output_filename):
         elif stripped_line.startswith(".model"):
             # Store .model lines for inclusion into function body
             model_lines.append(stripped_line)
-        elif stripped_line.startswith(".lib"):
-            # Store .lib lines for inclusion into function body
-            lib_lines.append(stripped_line)
-        elif stripped_line.startswith((".tran", ".ac")):
-            # Store .tran or .ac line for inclusion into function body
+        elif stripped_line.startswith(".tran"):
+            # Store .tran line for inclusion into function body
             analysis_lines.append(stripped_line)
         elif not stripped_line.startswith("."):
             # Store all other lines that do not start with '.'
@@ -127,8 +121,7 @@ def parse_and_generate_script(input_filename, output_filename):
         f'{indent}exe_qux = os.path.expanduser(r"~\QSPICE\QUX.exe")\n\n'
         f"{indent}# run QSPICE Simulation\n"
         f"{indent}try:\n"
-        f'{indent}{indent}run_qspice64 = subprocess.run([exe_qspice64, "{input_filename}"], capture_output=True, text=True, check=True, cwd = base_dir)\n'
-        # f"{indent}{indent}run_qspice64 = subprocess.run([exe_qspice64, file_path], capture_output=True, text=True, check=True)\n"
+        f'{indent}{indent}run_qspice64 = subprocess.run([exe_qspice64, "{input_filename}"], capture_output=True, text=True, check=True)\n'
         # f"{indent}{indent}print(run_qspice64.stdout)\n"
         # f"{indent}{indent}print(run_qspice64.stderr)\n\n"
         f"{indent}except subprocess.CalledProcessError as e:\n"
@@ -136,15 +129,13 @@ def parse_and_generate_script(input_filename, output_filename):
         f"{indent}{indent}print(e.stderr)\n\n"
         f"{indent}# Run postprocess measurement\n"
         f"{indent}try:\n"
-        f'{indent}{indent}run_qpost = subprocess.run([exe_qpost, "{input_filename}", "-o", "results.txt"], capture_output=True, text=True, check=True, cwd = base_dir)\n'
-        # f'{indent}{indent}run_qpost = subprocess.run([exe_qpost, "{input_filename}", "-o", "results.txt"], capture_output=True, text=True, check=True)\n'
-        # f'{indent}{indent}run_qpost = subprocess.run([exe_qpost, file_path, "-o", "results.txt"], capture_output=True, text=True, check=True)\n'
+        f'{indent}{indent}run_qpost = subprocess.run([exe_qpost, "{input_filename}", "-o", "results.txt"], capture_output=True, text=True, check=True)\n'
         f"{indent}except subprocess.CalledProcessError as e:\n"
         f"{indent}{indent}print('QPOST exec output:')\n"
         f"{indent}{indent}print(e.stderr)\n\n"
         # f"{indent}print(run_qpost.stdout)\n"
         # f"{indent}print(run_qpost.stderr)\n\n"
-        f'{indent}f = open(results_file_path, "r")\n'
+        f'{indent}f = open("results.txt", "r")\n'
         f"{indent}results_lines = f.readlines()\n"
         f"{indent}f.close()\n"
     ]
@@ -152,33 +143,27 @@ def parse_and_generate_script(input_filename, output_filename):
         f"{indent}# Run postprocess waveforms extraction\n"
         f"{indent}df = 0 \n"
         f"{indent}if export_traces:\n"
-        f'{indent}{indent}run_qux = subprocess.run([exe_qux, "-Export", "{input_filename.replace(".cir", ".qraw")}", export_traces, "all", "CSV"], cwd = base_dir)\n'
-        f"{indent}{indent}df = pd.read_csv(csv_file_path) \n"
+        f'{indent}{indent}run_qux = subprocess.run([exe_qux, "-Export", "{input_filename.replace(".cir", ".qraw")}", export_traces, "all", "CSV"])\n'
+        f'{indent}{indent}df = pd.read_csv("{input_filename.replace(".cir", ".csv")}") \n'
         f"{indent}{indent}df.columns = df.columns.str.lower() \n\n"
         f"{indent}{indent}#Delete Exported Waveforms CSV File \n"
-        f'{indent}{indent}subprocess.run(["del", "{input_filename.replace(".cir", ".csv")}"], shell=True, cwd = base_dir) \n'
+        f'{indent}{indent}subprocess.run(["del", "{input_filename.replace(".cir", ".csv")}"], shell=True) \n'
     ]
 
     processing_lines3 = [
         f"{indent}# Delete Results\n"
-        f'{indent}subprocess.run(["del", "{input_filename.replace(".cir", ".qraw")}"], shell=True, cwd = base_dir)\n\n'
+        f'{indent}subprocess.run(["del", "{input_filename.replace(".cir", ".qraw")}"], shell=True)\n\n'
         f"{indent}# Delete Netlist\n"
-        f'{indent}subprocess.run(["del", "{input_filename}"], shell=True, cwd = base_dir)\n\n'
-        # f'{indent}subprocess.run(["del", file_path], shell=True, cwd = base_dir)\n\n'
+        f'{indent}subprocess.run(["del", "{input_filename}"], shell=True)\n\n'
         f"{indent}# Delete QPOST Results\n"
-        f'{indent}subprocess.run(["del", "results.txt"], shell=True, cwd = base_dir)\n'
+        f'{indent}subprocess.run(["del", "results.txt"], shell=True)\n'
     ]
     processing_lines = processing_lines1 + processing_lines2 + processing_lines3
     # generate the function body
     function_body = f"{indent}if export_traces is None:\n"
     function_body += f"{indent}{indent} export_traces = [] \n"
     function_body += f"{indent}#### Create circuit file ####\n"
-    function_body += f'{indent}cir_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "{input_filename}")\n'
-    function_body += f'{indent}results_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "results.txt")\n'
-    function_body += f'{indent}csv_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "{input_filename.replace(".cir", ".csv")}")\n'
-    function_body += f"{indent}base_dir = os.path.dirname(os.path.realpath(__file__))\n"
-    # function_body += f'{indent}QSPICE_dir = os.path.join(base_dir, "QSPICE")\n'
-    function_body += f'{indent}f = open(cir_file_path, "w", newline="\\n")\n\n{indent}#### Circuit Definition ####\n'
+    function_body += f'{indent}f = open("{input_filename}", "w", newline="\\n")\n\n{indent}#### Circuit Definition ####\n'
     function_body += f'{indent}f.write("* Auto-Generated Netlist File" + "\\n")\n'
 
     for circuit_line in circuit_lines:
@@ -199,14 +184,6 @@ def parse_and_generate_script(input_filename, output_filename):
     function_body += f"\n{indent}#### Models ####\n"
     for model_line in model_lines:
         function_body += f'{indent}f.write("{model_line}" + "\\n")\n'
-
-    # Add .lib line as they are
-    function_body += f"\n{indent}#### Libs ####\n"
-    for lib_line in lib_lines:
-        escaped = lib_line.replace("\\", "\\\\").replace(
-            '"', '\\"'
-        )  # escape backslashes and quotes
-        function_body += f'{indent}f.write("{escaped}" + "\\n")\n'
 
     # Add .options line as they are
     function_body += f"\n{indent}#### Spice Options ####\n"
