@@ -1242,5 +1242,6 @@
   «text (-2700,2300) 1 7 0 0x1000000 -1 -1 "ï»¿.param Rsense = x"»
   «text (-650,2300) 1 7 1 0x1000000 -1 -1 "ï»¿Current sense resistance "»
   «text (-750,-6050) 1 7 1 0x1000000 -1 -1 "ï»¿.options maxord = 1"»
+  «text (-1050,8500) 4 7 1 0x1000000 -1 -1 "ï»¿CCM Boost PFC AMC - User Template"»
 »
 
