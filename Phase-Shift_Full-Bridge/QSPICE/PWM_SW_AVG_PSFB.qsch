@@ -47,7 +47,7 @@
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "2"»
     »
   »
-  «component (4700,0) 0 0
+  «component (3800,0) 0 0
     «symbol C
       «type: C»
       «description: Capacitor»
@@ -62,7 +62,7 @@
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "-"»
     »
   »
-  «component (4700,-600) 0 0
+  «component (3800,-600) 0 0
     «symbol R
       «type: R»
       «description: Resistor(USA Style Symbol)»
@@ -85,7 +85,7 @@
       «line (0,-180) (0,-200) 0 0 0x1000000 -1 -1»
       «zigzag (-80,180) (80,-180) 0 0 0 0x1000000 -1 -1»
       «text (100,150) 1 7 0 0x1000000 -1 -1 "R2"»
-      «text (100,-150) 1 7 0 0x1000000 -1 -1 "{R_load}"»
+      «text (-200,-800) 1 7 0 0x1000000 -1 -1 "{max(Vout/(Pout_lim/Vout),Vout/Iout_max)}"»
       «pin (0,200) (0,0) 1 0 0 0x0 -1 "1"»
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "2"»
     »
@@ -252,10 +252,10 @@
       «pin (500,200) (-130,-40) 1 11 0 0x0 -1 "c"»
     »
   »
-  «component (10400,-1600) 0 0
-    «symbol B1
-      «type: B»
-      «description: Behavioral Voltage Source»
+  «component (10700,-3000) 0 0
+    «symbol V
+      «type: V»
+      «description: Independent Voltage Source»
       «shorted pins: false»
       «line (0,-130) (0,-200) 0 0 0x1000000 -1 -1»
       «line (0,200) (0,130) 0 0 0x1000000 -1 -1»
@@ -263,16 +263,16 @@
       «rect (-2,50) (2,100) 0 0 0 0x1000000 0x3000000 -1 0 -1»
       «rect (-25,-73) (25,-77) 0 0 0 0x1000000 0x3000000 -1 0 -1»
       «ellipse (-130,130) (130,-130) 0 0 0 0x1000000 0x1000000 -1 -1»
-      «text (100,150) 1 7 0 0x1000000 -1 -1 "B1"»
-      «text (100,-150) 1 7 0 0x1000000 -1 -1 "V=I_ks"»
+      «text (100,150) 1 7 0 0x1000000 -1 -1 "V3"»
+      «text (100,-150) 1 7 0 0x1000000 -1 -1 "AC {I_ks} 0"»
       «pin (0,200) (0,0) 1 0 0 0x0 -1 "+"»
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "-"»
     »
   »
-  «component (11900,-1600) 0 0
-    «symbol B1
-      «type: B»
-      «description: Behavioral Voltage Source»
+  «component (12100,-3000) 0 0
+    «symbol V
+      «type: V»
+      «description: Independent Voltage Source»
       «shorted pins: false»
       «line (0,-130) (0,-200) 0 0 0x1000000 -1 -1»
       «line (0,200) (0,130) 0 0 0x1000000 -1 -1»
@@ -280,15 +280,15 @@
       «rect (-2,50) (2,100) 0 0 0 0x1000000 0x3000000 -1 0 -1»
       «rect (-25,-73) (25,-77) 0 0 0 0x1000000 0x3000000 -1 0 -1»
       «ellipse (-130,130) (130,-130) 0 0 0 0x1000000 0x1000000 -1 -1»
-      «text (100,150) 1 7 0 0x1000000 -1 -1 "B2"»
-      «text (100,-150) 1 7 0 0x1000000 -1 -1 "V=I_uramp"»
+      «text (100,150) 1 7 0 0x1000000 -1 -1 "V5"»
+      «text (100,-150) 1 7 0 0x1000000 -1 -1 "AC {I_uramp} 0"»
       «pin (0,200) (0,0) 1 0 0 0x0 -1 "+"»
       «pin (0,-200) (0,0) 1 0 0 0x0 -1 "-"»
     »
   »
   «net (-2700,-900) 1 13 0 "GND"»
   «net (800,-4200) 1 13 0 "GND"»
-  «net (4700,-1000) 1 13 0 "GND"»
+  «net (3800,-1000) 1 13 0 "GND"»
   «net (-1000,-500) 1 13 0 "GND"»
   «net (700,-700) 1 13 0 "GND"»
   «net (1700,-700) 1 13 0 "GND"»
@@ -297,26 +297,26 @@
   «net (5000,-4700) 1 13 0 "GND"»
   «net (5700,200) 1 14 0 "OUT"»
   «net (-1300,-1200) 1 7 0 "vc"»
-  «net (10400,-2200) 1 13 0 "GND"»
-  «net (10900,-1000) 1 14 0 "ks"»
-  «net (11900,-2200) 1 13 0 "GND"»
-  «net (12400,-1000) 1 14 0 "kr"»
+  «net (10700,-3700) 1 13 0 "GND"»
+  «net (11100,-2500) 1 14 0 "ks"»
+  «net (12100,-3700) 1 13 0 "GND"»
+  «net (12500,-2500) 1 14 0 "kr"»
   «junction (8300,400)»
   «junction (6900,-300)»
   «junction (5700,200)»
   «junction (5700,-900)»
-  «junction (4700,200)»
-  «junction (4700,-900)»
+  «junction (3800,200)»
+  «junction (3800,-900)»
   «junction (800,-2600)»
   «wire (-2700,-900) (-2700,-500) "GND"»
   «wire (-1600,200) (-2700,200) "N01"»
   «wire (800,-4200) (800,-4000) "GND"»
-  «wire (3200,200) (4700,200) "OUT"»
-  «wire (4700,-200) (4700,-400) "N02"»
-  «wire (4700,-900) (4700,-1000) "GND"»
+  «wire (3200,200) (3800,200) "OUT"»
+  «wire (3800,-200) (3800,-400) "N02"»
+  «wire (3800,-900) (3800,-1000) "GND"»
   «wire (5700,-200) (5700,200) "OUT"»
   «wire (5700,-600) (5700,-900) "GND"»
-  «wire (4700,-800) (4700,-900) "GND"»
+  «wire (3800,-800) (3800,-900) "GND"»
   «wire (-2700,200) (-2700,-100) "N01"»
   «wire (1100,200) (-700,200) "N03"»
   «wire (2800,200) (1400,200) "N04"»
@@ -324,13 +324,13 @@
   «wire (700,-200) (700,-700) "GND"»
   «wire (1400,-200) (1700,-200) "GND"»
   «wire (1700,-200) (1700,-700) "GND"»
-  «wire (5700,200) (4700,200) "OUT"»
+  «wire (5700,200) (3800,200) "OUT"»
   «wire (800,-2900) (800,-2600) "vc"»
   «wire (1900,-2600) (800,-2600) "vc"»
   «wire (800,-3600) (800,-3300) "N05"»
   «wire (6700,200) (5700,200) "OUT"»
   «wire (5700,-900) (6600,-900) "GND"»
-  «wire (5700,-900) (4700,-900) "GND"»
+  «wire (5700,-900) (3800,-900) "GND"»
   «wire (6600,-900) (6600,0) "GND"»
   «wire (6600,0) (6700,0) "GND"»
   «wire (6900,-300) (6900,-100) "GND"»
@@ -354,36 +354,36 @@
   «wire (800,-2600) (-1300,-2600) "vc"»
   «wire (-1300,-1200) (-1300,-2600) "vc"»
   «wire (-1300,-300) (-1300,-1200) "vc"»
-  «wire (10400,-1400) (10400,-1000) "ks"»
-  «wire (10400,-2200) (10400,-1800) "GND"»
-  «wire (10900,-1000) (11100,-1000) "ks"»
-  «wire (10400,-1000) (10900,-1000) "ks"»
-  «wire (11900,-1400) (11900,-1000) "kr"»
-  «wire (11900,-2200) (11900,-1800) "GND"»
-  «wire (12400,-1000) (12600,-1000) "kr"»
-  «wire (11900,-1000) (12400,-1000) "kr"»
-  «text (-6450,2800) 1 7 0 0x1000000 -1 -1 "ï»¿.param N = 1.07"»
-  «text (-6450,3000) 1 7 0 0x1000000 -1 -1 "ï»¿.param Lout = 320e-6"»
+  «wire (10700,-3200) (10700,-3700) "GND"»
+  «wire (10700,-2800) (10700,-2500) "ks"»
+  «wire (11100,-2500) (11200,-2500) "ks"»
+  «wire (10700,-2500) (11100,-2500) "ks"»
+  «wire (12100,-3200) (12100,-3700) "GND"»
+  «wire (12100,-2800) (12100,-2500) "kr"»
+  «wire (12500,-2500) (12600,-2500) "kr"»
+  «wire (12100,-2500) (12500,-2500) "kr"»
+  «text (-8800,2550) 1 7 0 0x1000000 -1 -1 "ï»¿.param N = 1.07"»
+  «text (-8800,2750) 1 7 0 0x1000000 -1 -1 "ï»¿.param Lout = 320e-6"»
   «text (350,2100) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_fsec= {fsw*2}"»
   «text (350,4350) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_L = {Lout/(N*N)}"»
   «text (350,4150) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_uramp = if(I_Dccm < I_Ddcm,if(I_Dccm>0.45,I_Se/I_fsec,0),0)"»
   «text (500,-1850) 1 7 0 0x1000000 -1 -1 "ï»¿.ac dec 100 1 1Meg"»
-  «text (-6450,3600) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout = 19Âµ"»
-  «text (-6450,3400) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout_ESR_max = 32.7m"»
-  «text (-6450,3200) 1 7 0 0x1000000 -1 -1 "ï»¿.param R_load = 79.4"»
-  «text (-6450,4000) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vout = 270.0"»
+  «text (-8800,3600) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout = 19Âµ"»
+  «text (-8800,3400) 1 7 0 0x1000000 -1 -1 "ï»¿.param Cout_ESR_max = 32.7m"»
+  «text (350,1500) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_R_load = {max(Vout/(Pout_lim/Vout),Vout/Iout_max)}"»
+  «text (-8800,4000) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vout = 264.7"»
   «text (350,3950) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_Vref = 2.5"»
-  «text (-6450,4200) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vin = 420"»
+  «text (-8800,4200) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vin = 360"»
   «text (350,3550) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_Vac = Vin - Vout/N"»
-  «text (350,3350) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_ic = Vout/R_load * N"»
-  «text (350,3150) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_R = R_load / (N*N)"»
+  «text (350,3350) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_ic = Vout/I_R_load * N"»
+  «text (350,3150) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_R = I_R_load / (N*N)"»
   «text (350,2950) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_Dccm = (Vout/N)/Vin"»
   «text (350,2750) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_K = I_L/I_R*I_fsec"»
   «text (350,2550) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_Ddcm = sqrt(0.2e1) * sqrt(I_K / Vin / (Vin - Vout / N)) * Vout / N"»
   «text (350,2350) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_D = min(I_Dccm, I_Ddcm)"»
-  «text (350,3750) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_vc = 3"»
+  «text (350,3750) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_vc = 1"»
   «text (350,1750) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_ks = if(I_Dccm < I_Ddcm, I_ks_ccm, I_ks_dcm)"»
-  «text (-6150,4450) 1 7 1 0x1000000 -1 -1 "ï»¿Input/Output/Operating parameters"»
+  «text (-8500,4450) 1 7 1 0x1000000 -1 -1 "ï»¿Input/Output/Operating parameters"»
   «text (250,4600) 1 7 1 0x1000000 -1 -1 "ï»¿Internal Parameters"»
   «text (400,5550) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_Vcp = Vout/N "»
   «text (400,5350) 1 7 0 0x1000000 -1 -1 "ï»¿.param I_S2 = I_Vcp/I_L * I_ks"»
@@ -407,19 +407,26 @@
   «text (5800,2350) 1 7 1 0x1000000 -1 -1 "ï»¿Identify mode of operation:"»
   «text (4650,1750) 1 7 1 0x1000000 -1 -1 "ï»¿ks is current sense factor which converts A to V (E.g. Rsense) and is calculated such as control voltage vc has some realistic value equal to 3 V (note, vc will be automaticaly adjusted if external ramp is added)."»
   «text (5800,3950) 1 7 1 0x1000000 -1 -1 "ï»¿Reference voltage for external E/A which force AVG model to correct DC OP"»
-  «text (-4100,2800) 1 7 1 0x1000000 -1 -1 "ï»¿Transformer turns-ratio (1:Ns)"»
-  «text (-4100,3000) 1 7 1 0x1000000 -1 -1 "ï»¿Output Inductor"»
-  «text (-4100,3200) 1 7 1 0x1000000 -1 -1 "ï»¿Load resistor"»
-  «text (-4100,3400) 1 7 1 0x1000000 -1 -1 "ï»¿Output capacitor ESR"»
-  «text (-4100,3600) 1 7 1 0x1000000 -1 -1 "ï»¿Output capacitor value"»
-  «text (-4100,3800) 1 7 1 0x1000000 -1 -1 "ï»¿Switching frequency seen by primary side"»
-  «text (-4100,4000) 1 7 1 0x1000000 -1 -1 "ï»¿Output voltage level"»
-  «text (-4100,4200) 1 7 1 0x1000000 -1 -1 "ï»¿Input voltage level"»
-  «text (3500,-2300) 1 7 0 0x1000000 -1 -1 "ï»¿.meas TF_gain db(abs(v(out))) when frequency={I_fsec/50} "»
-  «text (3500,-2500) 1 7 0 0x1000000 -1 -1 "ï»¿.meas TF_phase phase(v(out)) when frequency={I_fsec/50} "»
+  «text (-6450,2550) 1 7 1 0x1000000 -1 -1 "ï»¿Transformer turns-ratio (1:Ns)"»
+  «text (-6450,2750) 1 7 1 0x1000000 -1 -1 "ï»¿Output Inductor"»
+  «text (5200,1500) 1 7 1 0x1000000 -1 -1 "ï»¿Load resistor calculated according to specified Vout, Pout and Iout limit"»
+  «text (-6450,3400) 1 7 1 0x1000000 -1 -1 "ï»¿Output capacitor ESR"»
+  «text (-6450,3600) 1 7 1 0x1000000 -1 -1 "ï»¿Output capacitor value"»
+  «text (-6450,3800) 1 7 1 0x1000000 -1 -1 "ï»¿Switching frequency seen by primary side"»
+  «text (-6450,4000) 1 7 1 0x1000000 -1 -1 "ï»¿Output voltage level"»
+  «text (-6450,4200) 1 7 1 0x1000000 -1 -1 "ï»¿Input voltage level"»
+  «text (3500,-2300) 1 7 0 0x1000000 -1 -1 "ï»¿.meas TF_gain db(abs(v(out))) when frequency={fc} "»
+  «text (3500,-2500) 1 7 0 0x1000000 -1 -1 "ï»¿.meas TF_phase phase(v(out)) when frequency={fc} "»
   «text (3500,-2700) 1 7 0 0x1000000 -1 -1 "ï»¿.meas ks V(ks)"»
   «text (3500,-2900) 1 7 0 0x1000000 -1 -1 "ï»¿.meas kr V(kr)"»
-  «text (-6450,3800) 1 7 0 0x1000000 -1 -1 "ï»¿.param fsw = 100K"»
+  «text (-8800,3800) 1 7 0 0x1000000 -1 -1 "ï»¿.param fsw = 100K"»
   «text (500,-2100) 1 7 0 0x1000000 -1 -1 "ï»¿.lib PWM_SW_AVG_model.lib"»
+  «text (-8800,2350) 1 7 0 0x1000000 -1 -1 "ï»¿.param fc = 4K"»
+  «text (-6450,2350) 1 7 1 0x1000000 -1 -1 "ï»¿Frequency at gain / phase is reported (Desired cross-over frequency at frequency compensation)"»
+  «text (5800,2150) 1 7 1 0x1000000 -1 -1 "ï»¿Frequency seen by output inductor"»
+  «text (-8800,3200) 1 7 0 0x1000000 -1 -1 "ï»¿.param Pout_lim = 90"»
+  «text (-8800,3000) 1 7 0 0x1000000 -1 -1 "ï»¿.param Iout_max = 3.4"»
+  «text (-6450,3200) 1 7 1 0x1000000 -1 -1 "ï»¿Output power limit"»
+  «text (-6450,3000) 1 7 1 0x1000000 -1 -1 "ï»¿Output current limit"»
 »
 

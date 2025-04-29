@@ -128,20 +128,7 @@ def parse_and_generate_script(input_filename, output_filename):
         f'{indent}exe_qux = os.path.expanduser(r"~\QSPICE\QUX.exe")\n\n'
         f"{indent}# run QSPICE Simulation\n"
         f"{indent}try:\n"
-        f'{indent}{indent}run_qspice64 = subprocess.Popen([exe_qspice64, "{input_filename}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, cwd = base_dir, bufsize=1, universal_newlines=True)\n'
-        f"{indent}{indent}for line in run_qspice64.stdout:\n"
-        f'{indent}{indent}{indent}print(line, end="")\n'
-        f"{indent}{indent}{indent}sys.stdout.flush()\n"
-        f"\n"
-        f"{indent}{indent}run_qspice64.wait()\n"
-        f"\n"
-        f"{indent}{indent}# Check exit code after process is done\n"
-        f"{indent}{indent}if run_qspice64.returncode == 0:\n"
-        f'{indent}{indent}{indent}print("QSPICE64 simulation completed successfully.")\n'
-        f"{indent}{indent}{indent}print('*************** END ***************')\n"
-        f"{indent}{indent}else:\n"
-        f'{indent}{indent}{indent}print(f"QSPICE64 simulation failed with exit code {{run_qspice64.returncode}}.")\n'
-        f'{indent}{indent}{indent}raise SystemExit("Terminating execution because simulation failed.")\n'
+        f'{indent}{indent}run_qspice64 = subprocess.run([exe_qspice64, "{input_filename}"], capture_output=True, text=True, check=True, cwd = base_dir)\n'
         # f"{indent}{indent}run_qspice64 = subprocess.run([exe_qspice64, file_path], capture_output=True, text=True, check=True)\n"
         # f"{indent}{indent}print('QSPICE64 ran successfully:')\n"
         # f"{indent}{indent}print(run_qspice64.stdout)\n"
