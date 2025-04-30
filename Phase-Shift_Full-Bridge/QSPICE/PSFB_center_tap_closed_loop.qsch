@@ -1529,7 +1529,7 @@
   «text (23750,13750) 5 7 1 0x1000000 -1 -1 "ï»¿Phase Shift Full bridge_Center-tap - Close Loop"»
   «text (30950,9300) 1 7 0 0x1000000 -1 -1 "ï»¿.param Lout = 320Âµ"»
   «text (30950,9000) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vout = 264.7"»
-  «text (30950,8050) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vin=400"»
+  «text (30950,8050) 1 7 0 0x1000000 -1 -1 "ï»¿.param Vin=440"»
   «text (30950,6700) 1 7 0 0x1000000 -1 -1 "ï»¿.param Iout_max=3.4"»
   «text (30950,6300) 1 7 0 0x1000000 -1 -1 "ï»¿.param Pout_lim=900"»
   «text (30950,7750) 1 7 0 0x1000000 -1 -1 "ï»¿.param L_leak = 8e-6"»
