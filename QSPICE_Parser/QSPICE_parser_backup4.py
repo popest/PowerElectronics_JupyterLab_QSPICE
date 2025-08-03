@@ -117,15 +117,15 @@ def parse_and_generate_script(input_filename, output_filename):
         if match:
             meas_name = match.group(1)
             for_loop_code += f'{indent}{indent}{indent}case "{meas_line.lower()}:": \n'
-            for_loop_code += f"{indent}{indent}{indent}{indent}results['{meas_name}'] = float(re.search(r'[-+]?\\d*\\.\\d+|\\d+', results_lines[i + 1])[0])\n\n"
+            for_loop_code += f"{indent}{indent}{indent}{indent}results['{meas_name}'] = float(re.search(r'[-+]?\d*\.\d+|\d+', results_lines[i + 1])[0])\n\n"
     for_loop_code += f"{indent}return [df,results]"
 
     # Result file processing lines
     processing_lines1 = [
         f"\n{indent}# Assume that QSPICE is installed in its default path for non-Admin user\n"
-        f'{indent}exe_qspice64 = os.path.expanduser(r"~/QSPICE/QSPICE64.exe")\n'
-        f'{indent}exe_qpost = os.path.expanduser(r"~/QSPICE/QPOST.exe")\n'
-        f'{indent}exe_qux = os.path.expanduser(r"~/QSPICE/QUX.exe")\n\n'
+        f'{indent}exe_qspice64 = os.path.expanduser(r"~\QSPICE\QSPICE64.exe")\n'
+        f'{indent}exe_qpost = os.path.expanduser(r"~\QSPICE\QPOST.exe")\n'
+        f'{indent}exe_qux = os.path.expanduser(r"~\QSPICE\QUX.exe")\n\n'
         f"{indent}# run QSPICE Simulation\n"
         f"{indent}try:\n"
         f'{indent}{indent}run_qspice64 = subprocess.Popen([exe_qspice64, "{input_filename}"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, cwd = base_dir, bufsize=1, universal_newlines=True)\n'
